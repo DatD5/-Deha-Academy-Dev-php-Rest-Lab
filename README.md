@@ -1,67 +1,106 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Nguyễn Tiến Đạt
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Deha-Academy-php-RestfullApi-Lab
 
-## About Laravel
+Getting Started
+`git clone ` 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+php artisan serv
+Tools/commands used
+Create Migration:
+php artisan make:migration create_posts_table
+php artisan make:migrate
+Tạo Model và Controller:
+php artisan make:model Post
+php artisan make:controller API/PostController --api
+Install Api
+php artisan install:api
+Create Factory and Seed dữ liệu mẫu
+php artisan make:factory PostFactory
+php artisan tinker
+App\Models\Post::factory(100)->create()
+Create Resource and Collection
+php artisan make:resource PostResource
+php artisan make:resource PostCollection
+Create Form Request Validation
+php artisan make:request StorePostRequest
+php artisan make:request UpdatePostRequest
+Using Postman to test API
+Get list Post
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+image
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Add Post
 
-## Learning Laravel
+image
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Update Post by PUT
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+image
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Update Post by PATCH
 
-## Laravel Sponsors
+image
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Get Post
 
-### Premium Partners
+image
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Delete Post
 
-## Contributing
+image
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Feature Test
+Create test
+php artisan make:test Posts/CreatePostTest
+php artisan make:test Posts/DeletePostTest
+php artisan make:test Posts/GetListPostTest
+php artisan make:test Posts/GetPostTest
+php artisan make:test Posts/UpdatePostTest
+Run test
+CreatePostTest
 
-## Code of Conduct
+php artisan test --filter user_can_create_post_if_data_is_valid
+php artisan test --filter user_can_not_create_post_if_name_is_null
+php artisan test --filter user_can_not_create_post_if_body_is_null
+php artisan test --filter user_can_not_create_post_if_data_is_invalid
+DeletePostTest
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+php artisan test --filter user_can_delete_post_if_post_exits
+php artisan test --filter user_can_not_delete_post_if_post_not_exits
+GetListPostTest
 
-## Security Vulnerabilities
+php artisan test --filter user_can_get_list_posts
+GetPostTest
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+php artisan test --filter user_can_not_get_post_if_post_not_exits
+php artisan test --filter user_can_get_post_if_post_exits
+UpdatePostTest
 
-## License
+php artisan test --filter user_can_update_post_if_post_exits_and_data_is_valid
+php artisan test --filter user_can_not_update_post_if_post_exits_and_name_is_null
+php artisan test --filter user_can_not_update_post_if_post_exits_and_body_is_null
+php artisan test --filter user_can_not_update_post_if_post_exits_and_data_is_not_valid
+php artisan test --filter user_can_not_update_post_if_post_not_exits_and_data_is_valid
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# -Deha-Academy-Dev-php-Rest-Lab
+Use handle error (Handler.app)
+public function render($request, Throwable $e)
+    {
+        if ($e instanceof ModelNotFoundException) {
+            return response()->json([
+                'status' => Response::HTTP_NOT_FOUND,
+                'message' =>  $e->getMessage()
+            ],Response::HTTP_NOT_FOUND);
+                }
+        // Xử lý lỗi NotFoundHttpException (404 - Trang không tìm thấy)
+        if ($e instanceof NotFoundHttpException) {
+            return response()->json([
+                'status' => Response::HTTP_NOT_FOUND,
+                'message' => 'Trang không tìm thấy!'
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        // Nếu không phải các lỗi trên, trả về lỗi mặc định
+        return parent::render($request, $e);
+    }
+}
