@@ -19,6 +19,7 @@ Tạo Model và Controller:
     php artisan make:controller API/PostController --api
 
 Install Api
+
     php artisan install:API
 
 Create Factory and Seed dữ liệu mẫu
@@ -36,6 +37,7 @@ Create Form Request Validation
     php artisan make:request UpdatePostRequest
 
 Using Postman to test API
+
 Get list Post
 
 ![Screenshot 2024-12-29 181943](https://github.com/user-attachments/assets/46af6256-d532-47da-88be-1a558fb6f399)
