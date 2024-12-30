@@ -5,7 +5,7 @@ Deha-Academy-php-RestfullApi-Lab
 Getting Started
     `git clone https://github.com/DatD5/-Deha-Academy-Dev-php-Rest-Lab.git` 
 
-    php artisan serv
+    php artisan serve
 Tools/commands used
 
 Create Migration:
