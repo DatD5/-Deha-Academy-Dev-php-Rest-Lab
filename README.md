@@ -50,12 +50,14 @@ Add Post
 
 Update Post by PUT
 
-![Screenshot 2024-12-30 010419](https://github.com/user-attachments/assets/60b8b8bf-6488-4e25-a088-7c7272e09c69)
+![Screenshot 2024-12-30 162711](https://github.com/user-attachments/assets/3cca0ad2-e461-47cb-8eaf-7869638acb65)
+
 
 
 Update Post by PATCH
 
-![Screenshot 2024-12-30 010432](https://github.com/user-attachments/assets/17878384-b8ec-4dcf-91e1-96fb26b15981)
+![Screenshot 2024-12-30 162726](https://github.com/user-attachments/assets/e7310321-4814-4ada-b322-2688245110bb)
+
 
 
 Get Post
